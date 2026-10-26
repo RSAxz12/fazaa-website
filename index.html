@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة فزعة - خدمات الصيانة المنزلية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#1E40AF',
+                            lightBlue: '#3B82F6',
+                            orange: '#F97316',
+                            amber: '#F59E0B',
+                            dark: '#0F172A',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glassmorphism {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-900 text-gray-800 dark:text-gray-100 transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 glassmorphism border-b border-gray-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <div class="w-12 h-12 bg-gradient-to-tr from-blue-600 to-orange-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-[#Wrench] fa-wrench transform -rotate-12"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold text-blue-900 dark:text-white tracking-tight">فَــزْعَــة</span>
+                        <span class="block text-xs font-semibold text-orange-500">خبيرك المنزلي الموثوق</span>
+                    </div>
+                </div>
+
+                <!-- Navigation Links (Desktop) -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-bold">
+                    <a href="#services" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">الخدمات</a>
+                    <a href="#calculator" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">حاسبة التكلفة</a>
+                    <a href="#booking" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">طلب خدمة</a>
+                    <a href="#reviews" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">آراء العملاء</a>
+                    <a href="#technician" class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">انضم كفني</a>
+                </nav>
+
+                <!-- Actions (Theme toggle & Request Button) -->
+                <div class="flex items-center gap-4">
+                    <button id="themeToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-all">
+                        <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
+                    </button>
+                    <a href="#booking" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-orange-500/20 transition-all hover:scale-[1.02]">
+                        <i class="fa-solid fa-[#Plus] fa-plus"></i>
+                        طلب خدمة سريعة
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Segment -->
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="relative py-20 overflow-hidden bg-gradient-to-b from-blue-50/50 via-transparent to-transparent dark:from-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-sm font-bold mb-6 border border-blue-200 dark:border-blue-800">
+                    ⚡ صيانة منزلية فورية وبضمان معتمد
+                </span>
+                <h1 class="text-4xl sm:text-6xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
+                    كل خدمات الصيانة المنزلية <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">بين يديك وفي مكان واحد</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    نربطك بأفضل الفنيين المحترفين في مجالات الكهرباء، السباكة، التكييف، الكاميرات وغيرها، بسرعة جودة وضمان متكامل.
+                </p>
+
+                <!-- Interactive Search Bar -->
+                <div class="max-w-2xl mx-auto bg-white dark:bg-slate-800 p-2 sm:p-3 rounded-2xl shadow-xl border border-gray-100 dark:border-slate-700 flex flex-col sm:flex-row gap-2">
+                    <div class="relative flex-grow">
+                        <i class="fa-solid fa-magnifying-glass absolute right-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <input type="text" id="searchInput" placeholder="ابحث عن خدمة (مثلاً: تصليح مكيف، تركيب كاميرا...)" 
+                            class="w-full pr-11 pl-4 py-3 bg-transparent rounded-xl focus:outline-none dark:text-white placeholder-gray-400 text-sm font-semibold"
+                            onkeyup="filterServices()">
+                    </div>
+                    <button onclick="scrollToServices()" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-xl transition-colors">
+                        بحث
+                    </button>
+                </div>
+
+                <!-- Stats -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-16 pt-10 border-t border-gray-200 dark:border-slate-800">
+                    <div>
+                        <div class="text-3xl font-black text-blue-600 dark:text-blue-400">+10,000</div>
+                        <div class="text-sm font-bold text-gray-500 dark:text-gray-400">خدمة مكتملة</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-orange-500">+500</div>
+                        <div class="text-sm font-bold text-gray-500 dark:text-gray-400">فني محترف</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-blue-600 dark:text-blue-400">4.9 / 5</div>
+                        <div class="text-sm font-bold text-gray-500 dark:text-gray-400">تقييم العملاء</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-black text-orange-500">30 دقيقة</div>
+                        <div class="text-sm font-bold text-gray-500 dark:text-gray-400">معدل الاستجابة</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-16 bg-white dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-black text-gray-900 dark:text-white mb-3">خدماتنا المتميزة</h2>
+                    <p class="text-gray-500 dark:text-gray-400 font-bold">اختر الخدمة التي تحتاجها لتفاصيل أكثر وطلب سريع</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap justify-center gap-2 mb-10" id="categoryFilters">
+                    <button onclick="filterCategory('all')" class="cat-btn bg-blue-600 text-white px-5 py-2 rounded-xl text-sm font-bold transition-all">الكل</button>
+                    <button onclick="filterCategory('electricity')" class="cat-btn bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 px-5 py-2 rounded-xl text-sm font-bold transition-all">كهرباء</button>
+                    <button onclick="filterCategory('plumbing')" class="cat-btn bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 px-5 py-2 rounded-xl text-sm font-bold transition-all">سباكة</button>
+                    <button onclick="filterCategory('ac')" class="cat-btn bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 px-5 py-2 rounded-xl text-sm font-bold transition-all">تكييف</button>
+                    <button onclick="filterCategory('cameras')" class="cat-btn bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 px-5 py-2 rounded-xl text-sm font-bold transition-all">كاميرات مراقبة</button>
+                    <button onclick="filterCategory('paint')" class="cat-btn bg-gray-100 dark:bg-slate-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 px-5 py-2 rounded-xl text-sm font-bold transition-all">دهانات ومقاولات</button>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
+                    <!-- Dynamic rendering via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Price Estimator Calculator -->
+        <section id="calculator" class="py-16 bg-gradient-to-br from-blue-900 to-slate-900 text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <span class="text-orange-400 text-sm font-bold uppercase tracking-wider">شفافية تامة</span>
+                    <h2 class="text-3xl font-black mt-2">حاسبة التكلفة التقديرية</h2>
+                    <p class="text-gray-300 text-sm mt-2">احسب التكلفة المتوقعة لخدمتك قبل رفع الطلب</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-white/10 shadow-2xl">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="block text-sm font-bold mb-2">نوع الخدمة المطلوب:</label>
+                            <select id="calcService" onchange="calculatePrice()" class="w-full bg-slate-800 text-white p-3.5 rounded-xl border border-slate-700 focus:outline-none focus:border-orange-500 font-semibold">
+                                <option value="100">صيانة سباكة عامة (100 ر.س)</option>
+                                <option value="120">تأسيس وصيانة كهرباء (120 ر.س)</option>
+                                <option value="150">غسيل وتعبئة فريون مكيف (150 ر.س)</option>
+                                <option value="200">تركيب كاميرات مراقبة (200 ر.س)</option>
+                                <option value="250">ترميم ودهان غرف (250 ر.س)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">عدد الأجهزة / النقاط / الساعات:</label>
+                            <input type="number" id="calcUnits" value="1" min="1" max="20" onchange="calculatePrice()" onkeyup="calculatePrice()"
+                                class="w-full bg-slate-800 text-white p-3.5 rounded-xl border border-slate-700 focus:outline-none focus:border-orange-500 font-semibold">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 mb-8">
+                        <input type="checkbox" id="calcUrgent" onchange="calculatePrice()" class="w-5 h-5 accent-orange-500 rounded cursor-pointer">
+                        <label for="calcUrgent" class="text-sm font-bold cursor-pointer">طلب خدمة فورية طارئة (+50 ر.س)</label>
+                    </div>
+
+                    <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div>
+                            <span class="text-sm text-gray-300 block">التكلفة الإجمالية التقديرية:</span>
+                            <span id="totalPrice" class="text-4xl font-black text-orange-400">100</span>
+                            <span class="text-lg font-bold text-orange-400"> ر.س</span>
+                        </div>
+                        <a href="#booking" onclick="prefillBooking()" class="w-full sm:w-auto bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl transition-all text-center">
+                            اعتماد وحجز الخدمة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Form & Orders Section -->
+        <section id="booking" class="py-16 bg-gray-50 dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Form Column -->
+                    <div class="lg:col-span-7 bg-white dark:bg-slate-800 p-6 sm:p-10 rounded-3xl shadow-xl border border-gray-100 dark:border-slate-700">
+                        <h2 class="text-2xl font-black text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+                            <i class="fa-solid fa-calendar-check text-orange-500"></i>
+                            نموذج طلب خدمة صيانة
+                        </h2>
+
+                        <form id="bookingForm" onsubmit="handleBooking(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">الاسم الكامل *</label>
+                                    <input type="text" id="custName" required placeholder="محمد أحمد" class="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">رقم الجوال *</label>
+                                    <input type="tel" id="custPhone" required placeholder="05XXXXXXXX" class="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">الخدمة المطلوب صينتها *</label>
+                                    <select id="custService" required class="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                        <option value="كهرباء">صيانة وتأسيس كهرباء</option>
+                                        <option value="سباكة">صيانة سباكة وسرب</option>
+                                        <option value="تكييف">تنظيف وصيانة تكييف</option>
+                                        <option value="كاميرات مراقبة">تركيب كاميرات مراقبة</option>
+                                        <option value="دهانات">دهانات ومقاولات</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">الحي / المدينة *</label>
+                                    <input type="text" id="custLocation" required placeholder="مثال: الرياض - حي الملقا" class="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">التاريخ المناسب *</label>
+                                    <input type="date" id="custDate" required class="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-bold mb-2">الوقت المفضل *</label>
+                                    <select id="custTime" required class="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                        <option>صباحاً (9:00 ص - 12:00 م)</option>
+                                        <option>ظهراً (12:00 م - 4:00 م)</option>
+                                        <option>مساءً (4:00 م - 9:00 م)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold mb-2">وصف المشكلة بالتفصيل</label>
+                                <textarea id="custDesc" rows="3" placeholder="اشرح المشكلة باختصار حتى يجهز الفني المعدات المناسبة..." class="w-full p-3 rounded-xl border border-gray-200 dark:border-slate-700 dark:bg-slate-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                            </div>
+
+                            <!-- File Attachment with Image Preview -->
+                            <div>
+                                <label class="block text-sm font-bold mb-2">إرفاق صورة للمشكلة (اختياري)</label>
+                                <div class="flex items-center justify-center w-full">
+                                    <label class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-2xl cursor-pointer bg-gray-50 dark:bg-slate-900 hover:bg-gray-100 dark:hover:bg-slate-800 transition-all">
+                                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                            <i class="fa-solid fa-cloud-arrow-up text-2xl text-blue-500 mb-2"></i>
+                                            <p class="text-xs text-gray-500 dark:text-gray-400 font-semibold">اضغط لاختيار صورة للمشكلة المعطلة</p>
+                                        </div>
+                                        <input type="file" id="imageInput" accept="image/*" class="hidden" onchange="previewImage(event)" />
+                                    </label>
+                                </div>
+                                <!-- Image Preview Container -->
+                                <div id="previewContainer" class="mt-3 hidden relative w-32 h-32 rounded-xl overflow-hidden border-2 border-blue-500">
+                                    <img id="imagePreview" src="#" alt="معاينة الصورة" class="w-full h-full object-cover">
+                                    <button type="button" onclick="removePreview()" class="absolute top-1 right-1 bg-red-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-orange-500 hover:from-blue-700 hover:to-orange-600 text-white font-bold py-4 rounded-xl shadow-lg transition-all text-lg">
+                                إرسال الطلب الآن
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Live Requests Tracking (LocalStorage) -->
+                    <div class="lg:col-span-5 flex flex-col justify-between">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-xl border border-gray-100 dark:border-slate-700 h-full">
+                            <div class="flex justify-between items-center mb-6">
+                                <h3 class="text-xl font-black text-gray-900 dark:text-white flex items-center gap-2">
+                                    <i class="fa-solid fa-[#ListCheck] fa-list-check text-blue-500"></i>
+                                    طلباتك الحالية
+                                </h3>
+                                <button onclick="clearOrders()" class="text-xs text-red-500 hover:underline font-bold">مسح السجل</button>
+                            </div>
+
+                            <div id="ordersList" class="space-y-4 max-h-[500px] overflow-y-auto pr-1">
+                                <!-- Dynamic Render from LocalStorage -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials & Top Technicians -->
+        <section id="reviews" class="py-16 bg-white dark:bg-slate-900/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-black text-gray-900 dark:text-white mb-3">نخبة الفنيين وآراء العملاء</h2>
+                    <p class="text-gray-500 dark:text-gray-400 font-bold">نفخر بتقييمات عملائنا ومهارة فنيينا المعتمدين</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Tech Card 1 -->
+                    <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 text-center">
+                        <div class="w-20 h-20 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-3xl mx-auto mb-4 border-4 border-blue-500 shadow-md">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <h4 class="font-bold text-lg dark:text-white">أحمد السعيد</h4>
+                        <p class="text-xs text-blue-600 dark:text-blue-400 font-semibold mb-2">خبير كهرباء وتأسيس</p>
+                        <div class="text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-gray-500 text-xs">(4.9)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 italic">"خدمة سريعة جداً وأخلاق عالية في التعامل. تم حل المشكلة في وقت قياسي."</p>
+                    </div>
+
+                    <!-- Tech Card 2 -->
+                    <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 text-center">
+                        <div class="w-20 h-20 rounded-full bg-orange-100 dark:bg-orange-900/50 text-orange-500 flex items-center justify-center text-3xl mx-auto mb-4 border-4 border-orange-500 shadow-md">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h4 class="font-bold text-lg dark:text-white">خالد العمري</h4>
+                        <p class="text-xs text-orange-500 font-semibold mb-2">متخصص سباكة وكشف تسربات</p>
+                        <div class="text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-gray-500 text-xs">(5.0)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 italic">"دقة متناهية في المواعيد واستخدام أجهزة حديثة لكشف الكسر بدون تكسير."</p>
+                    </div>
+
+        </section>
+
+        <!-- Join as Technician -->
+        <section id="technician" class="py-16 bg-blue-50 dark:bg-slate-800/40">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="bg-gradient-to-r from-blue-600 to-orange-500 text-white p-8 sm:p-12 rounded-3xl shadow-xl">
+                    <h2 class="text-3xl font-black mb-4">هل أنت فني محترف؟ انضم لفريق فزعة!</h2>
+                    <p class="text-blue-100 mb-8 max-w-xl mx-auto text-sm sm:text-base">
+                        زد دخل الشهري واحصل على طلبات صيانة يومية في منطقتك بكل سهولة وشفافية.
+                    </p>
+                    <button onclick="alert('شكراً لاتمامك التسجيل! سيتواصل معك فريق فزعة لإكمال الانضمام.')" class="bg-white text-blue-900 hover:bg-gray-100 font-bold px-8 py-3.5 rounded-xl shadow-md transition-all">
+                        سجل الآن كشرك فني
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer with Documentation / Credits -->
+    <footer class="bg-slate-900 text-gray-300 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 pb-8 border-b border-slate-800">
+                
+                <!-- About Platform -->
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-gradient-to-tr from-blue-600 to-orange-500 rounded-xl flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-wrench"></i>
+                        </div>
+                        <span class="text-2xl font-black text-white">فَــزْعَــة</span>
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        منصة شاملة لحجز خدمات الصيانة المنزلية السريعة والطارئة بأعلى معايير الجودة والشفافية.
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-bold mb-4 text-base">روابط سريعة</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#services" class="hover:text-orange-400 transition-colors">• خدمات الصيانة</a></li>
+                        <li><a href="#calculator" class="hover:text-orange-400 transition-colors">• حاسبة التكلفة</a></li>
+                        <li><a href="#booking" class="hover:text-orange-400 transition-colors">• طلب خدمة جديدة</a></li>
+                        <li><a href="#reviews" class="hover:text-orange-400 transition-colors">• تقييمات العملاء</a></li>
+                    </ul>
+                </div>
+
+                <!-- Project Credits / Documentation Box (خانة التوثيق والأسماء) -->
+                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
+                    <h3 class="text-orange-400 font-bold mb-3 text-base flex items-center gap-2">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        توثيق المشروع / إعداد الفريق
+                    </h3>
+                    <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+                        <li>• إعداد وتطوير: <span class="text-white font-bold">[ اسم الطالب / الطالبة ]</span></li>
+                        <li>• إشراف: <span class="text-white font-bold">[ اسم المشرف / الدكتورة ]</span></li>
+                        <li>• الرقم الأكاديمي: <span class="text-white font-bold">[ 440000000 ]</span></li>
+                        <li>• الشعبة / المادة: <span class="text-white font-bold">[ مشروع تخرج / مادة البرمجة ]</span></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <p>جميع الحقوق محفوظة © 2026 - منصة فزعة للصيانة المنزلية</p>
+                <div class="flex gap-4 text-gray-400 text-base">
+                    <a href="#" class="hover:text-orange-400 transition-colors"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-orange-400 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-5 left-5 bg-green-600 text-white px-6 py-3 rounded-xl shadow-2xl transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <span id="toastMsg" class="font-bold text-sm">تم إرسال طلبك بنجاح!</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Service Data with HD Unsplash Images
+        const servicesData = [
+            {
+                id: 'electricity',
+                title: 'صيانة وتأسيس كهرباء',
+                desc: 'إصلاح الأعطال، تركيب الإضاءات، الطبالين وتأسيس شبكات الكهرباء بأعلى أمان.',
+                image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80',
+                badge: 'الأكثر طلباً'
+            },
+            {
+                id: 'plumbing',
+                title: 'خدمات السباكة الشاملة',
+                desc: 'كشف تسربات المياه، صيانة الخلاطات، تركيب المضخات وتمديد شبكات المياه.',
+                image: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?auto=format&fit=crop&w=600&q=80',
+                badge: 'ضمان 6 أشهر'
+            },
+            {
+                id: 'ac',
+                title: 'صيانة وتنظيف التكييف',
+                desc: 'غسيل المكيفات بأحدث الأجهزة، تعبئة الفريون، وإصلاح مشاكل التبريد.',
+                image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80',
+                badge: 'خدمة سريعة'
+            },
+            {
+                id: 'cameras',
+                title: 'تركيب كاميرات المراقبة',
+                desc: 'تركيب وبرمجة أنظمة الكاميرات الذكية للمنازل والفلل مع ربط الجوال.',
+                image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=600&q=80',
+                badge: 'أمان كامل'
+            },
+            {
+                id: 'paint',
+                title: 'دهانات وترميم منازل',
+                desc: 'دهان الجدران الداخلية والخارجية، معالجة الرطوبة والتشققات بدقة عالية.',
+                image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80',
+                badge: 'ألوان عصرية'
+            },
+            {
+                id: 'plumbing',
+                title: 'تركيب وصيانة الخزانات',
+                desc: 'غسيل وتعقيم الخزانات العلوية والأرضية مع الفحص الدوري والتعقيم.',
+                image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=600&q=80',
+                badge: 'تعقيم شامل'
+            }
+        ];
+
+        let uploadedImageBase64 = "";
+
+        // Render Services
+        function renderServices(items) {
+            const grid = document.getElementById('servicesGrid');
+            grid.innerHTML = items.map(s => `
+                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-gray-100 dark:border-slate-700 flex flex-col justify-between">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover transform hover:scale-105 transition-duration-500">
+                        <span class="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
+                            ${s.badge}
+                        </span>
+                    </div>
+                    <div class="p-5 flex-grow">
+                        <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-2">${s.title}</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-4">${s.desc}</p>
+                    </div>
+                    <div class="p-5 pt-0">
+                        <a href="#booking" onclick="selectServiceForBooking('${s.title}')" class="w-full block text-center bg-blue-50 dark:bg-slate-700 text-blue-600 dark:text-blue-300 hover:bg-blue-600 hover:text-white font-bold py-2.5 rounded-xl transition-all text-sm">
+                            طلب هذه الخدمة
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Category Filter
+        function filterCategory(cat) {
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-600', 'text-white');
+                btn.classList.add('bg-gray-100', 'dark:bg-slate-800', 'text-gray-600', 'dark:text-gray-300');
+            });
+            event.target.classList.add('bg-blue-600', 'text-white');
+
+            if (cat === 'all') {
+                renderServices(servicesData);
+            } else {
+                const filtered = servicesData.filter(s => s.id === cat);
+                renderServices(filtered);
+            }
+        }
+
+        // Search Filter
+        function filterServices() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = servicesData.filter(s => 
+                s.title.toLowerCase().includes(query) || s.desc.toLowerCase().includes(query)
+            );
+            renderServices(filtered);
+        }
+
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Price Estimator Logic
+        function calculatePrice() {
+            const base = parseInt(document.getElementById('calcService').value);
+            const units = parseInt(document.getElementById('calcUnits').value) || 1;
+            const urgent = document.getElementById('calcUrgent').checked ? 50 : 0;
+
+            const total = (base * units) + urgent;
+            document.getElementById('totalPrice').innerText = total;
+        }
+
+        function prefillBooking() {
+            const serviceSelect = document.getElementById('calcService');
+            const selectedText = serviceSelect.options[serviceSelect.selectedIndex].text;
+            let targetVal = "كهرباء";
+            if (selectedText.includes("سباكة")) targetVal = "سباكة";
+            if (selectedText.includes("مكيف")) targetVal = "تكييف";
+            if (selectedText.includes("كاميرات")) targetVal = "كاميرات مراقبة";
+            if (selectedText.includes("دهان")) targetVal = "دهانات";
+
+            document.getElementById('custService').value = targetVal;
+        }
+
+        function selectServiceForBooking(title) {
+            let targetVal = "كهرباء";
+            if (title.includes("سباكة")) targetVal = "سباكة";
+            if (title.includes("تكييف")) targetVal = "تكييف";
+            if (title.includes("كاميرات")) targetVal = "كاميرات مراقبة";
+            if (title.includes("دهان")) targetVal = "دهانات";
+
+            document.getElementById('custService').value = targetVal;
+        }
+
+        // Image Attachment & Preview
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImageBase64 = e.target.result;
+                    document.getElementById('imagePreview').src = e.target.result;
+                    document.getElementById('previewContainer').classList.remove('hidden');
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removePreview() {
+            uploadedImageBase64 = "";
+            document.getElementById('imageInput').value = "";
+            document.getElementById('previewContainer').classList.add('hidden');
+        }
+
+        // Handle Booking Submission
+        function handleBooking(e) {
+            e.preventDefault();
+            const order = {
+                id: 'FAZ-' + Math.floor(1000 + Math.random() * 9000),
+                name: document.getElementById('custName').value,
+                phone: document.getElementById('custPhone').value,
+                service: document.getElementById('custService').value,
+                location: document.getElementById('custLocation').value,
+                date: document.getElementById('custDate').value,
+                time: document.getElementById('custTime').value,
+                desc: document.getElementById('custDesc').value,
+                image: uploadedImageBase64,
+                status: 'قيد الانتظار ⏳',
+                createdAt: new Date().toLocaleDateString('ar-SA')
+            };
+
+            const existingOrders = JSON.parse(localStorage.getItem('fazaa_orders') || '[]');
+            existingOrders.unshift(order);
+            localStorage.setItem('fazaa_orders', JSON.stringify(existingOrders));
+
+            // Reset Form & Preview
+            document.getElementById('bookingForm').reset();
+            removePreview();
+            
+            showToast("تم رفع طلبك بنجاح! سيتم التواصل معك قريبًا.");
+            loadOrders();
+        }
+
+        // Render LocalStorage Orders
+        function loadOrders() {
+            const list = document.getElementById('ordersList');
+            const orders = JSON.parse(localStorage.getItem('fazaa_orders') || '[]');
+
+            if (orders.length === 0) {
+                list.innerHTML = `
+                    <div class="text-center py-10 text-gray-400">
+                        <i class="fa-solid fa-clipboard-list text-3xl mb-2"></i>
+                        <p class="text-sm font-semibold">لا توجد طلبات سابقة حتى الآن</p>
+                    </div>
+                `;
+                return;
+            }
+
+            list.innerHTML = orders.map(o => `
+                <div class="bg-gray-50 dark:bg-slate-900 p-4 rounded-xl border border-gray-200 dark:border-slate-700">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <span class="font-bold text-sm text-blue-600 dark:text-blue-400">رقم الطلب: #${o.id}</span>
+                            <h4 class="font-bold text-gray-800 dark:text-white">${o.service}</h4>
+                        </div>
+                        <span class="bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 text-xs font-bold px-2.5 py-1 rounded-full">
+                            ${o.status}
+                        </span>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
+                        <i class="fa-solid fa-location-dot text-red-500"></i> ${o.location} | <i class="fa-solid fa-clock text-blue-500"></i> ${o.date} (${o.time})
+                    </p>
+                    ${o.desc ? `<p class="text-xs text-gray-600 dark:text-gray-300 mb-2 bg-white dark:bg-slate-800 p-2 rounded border border-gray-100 dark:border-slate-700">"${o.desc}"</p>` : ''}
+                    ${o.image ? `
+                        <div class="mt-2">
+                            <span class="text-[10px] text-gray-400 font-bold block mb-1">الصورة المرفقة:</span>
+                            <img src="${o.image}" class="w-16 h-16 object-cover rounded-lg border border-gray-300 dark:border-slate-600">
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function clearOrders() {
+            if (confirm('هل أنت تأكد من مسح كافة الطلبات المحفوظة محلياً؟')) {
+                localStorage.removeItem('fazaa_orders');
+                loadOrders();
+            }
+        }
+
+        // Notification Toast
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').innerText = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 4000);
+        }
+
+        // Dark/Light Theme Switching
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Initialize On Load
+        window.onload = function() {
+            renderServices(servicesData);
+            loadOrders();
+            calculatePrice();
+
+            // Check system/saved theme
+            if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        };
+    </script>
+</body>
+</html>
