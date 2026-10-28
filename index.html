@@ -54,7 +54,7 @@
                 <!-- Logo -->
                 <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
                     <div class="w-12 h-12 bg-gradient-to-tr from-blue-600 to-orange-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-500/20">
-                        <i class="fa-solid fa-[#Wrench] fa-wrench transform -rotate-12"></i>
+                        <i class="fa-solid fa-wrench transform -rotate-12"></i>
                     </div>
                     <div>
                         <span class="text-2xl font-extrabold text-blue-900 dark:text-white tracking-tight">فَــزْعَــة</span>
@@ -77,7 +77,7 @@
                         <i id="themeIcon" class="fa-solid fa-moon text-lg"></i>
                     </button>
                     <a href="#booking" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-5 py-2.5 rounded-xl shadow-md shadow-orange-500/20 transition-all hover:scale-[1.02]">
-                        <i class="fa-solid fa-[#Plus] fa-plus"></i>
+                        <i class="fa-solid fa-plus"></i>
                         طلب خدمة سريعة
                     </a>
                 </div>
@@ -301,7 +301,7 @@
                         <div class="bg-white dark:bg-slate-800 p-6 rounded-3xl shadow-xl border border-gray-100 dark:border-slate-700 h-full">
                             <div class="flex justify-between items-center mb-6">
                                 <h3 class="text-xl font-black text-gray-900 dark:text-white flex items-center gap-2">
-                                    <i class="fa-solid fa-[#ListCheck] fa-list-check text-blue-500"></i>
+                                    <i class="fa-solid fa-list-check text-blue-500"></i>
                                     طلباتك الحالية
                                 </h3>
                                 <button onclick="clearOrders()" class="text-xs text-red-500 hover:underline font-bold">مسح السجل</button>
@@ -362,6 +362,25 @@
                         <p class="text-sm text-gray-600 dark:text-gray-300 italic">"دقة متناهية في المواعيد واستخدام أجهزة حديثة لكشف الكسر بدون تكسير."</p>
                     </div>
 
+                    <!-- Tech Card 3 -->
+                    <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-2xl border border-gray-100 dark:border-slate-700 text-center">
+                        <div class="w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-500 flex items-center justify-center text-3xl mx-auto mb-4 border-4 border-emerald-500 shadow-md">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <h4 class="font-bold text-lg dark:text-white">سارة الحارثي</h4>
+                        <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mb-2">تقييم عميل - صيانة تكييف</p>
+                        <div class="text-amber-400 text-sm mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-gray-500 text-xs">(4.8)</span>
+                        </div>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 italic">"التطبيقات التفاعلية وحاسبة الأسعار جعلت التجربة واضحة ومريحة جداً."</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Join as Technician -->
@@ -370,10 +389,10 @@
                 <div class="bg-gradient-to-r from-blue-600 to-orange-500 text-white p-8 sm:p-12 rounded-3xl shadow-xl">
                     <h2 class="text-3xl font-black mb-4">هل أنت فني محترف؟ انضم لفريق فزعة!</h2>
                     <p class="text-blue-100 mb-8 max-w-xl mx-auto text-sm sm:text-base">
-                        زد دخل الشهري واحصل على طلبات صيانة يومية في منطقتك بكل سهولة وشفافية.
+                        زد دخلك الشهري واحصل على طلبات صيانة يومية في منطقتك بكل سهولة وشفافية.
                     </p>
                     <button onclick="alert('شكراً لاتمامك التسجيل! سيتواصل معك فريق فزعة لإكمال الانضمام.')" class="bg-white text-blue-900 hover:bg-gray-100 font-bold px-8 py-3.5 rounded-xl shadow-md transition-all">
-                        سجل الآن كشرك فني
+                        سجل الآن كشريك فني
                     </button>
                 </div>
             </div>
@@ -409,17 +428,14 @@
                     </ul>
                 </div>
 
-                <!-- Project Credits / Documentation Box (خانة التوثيق والأسماء) -->
-                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
-                    <h3 class="text-orange-400 font-bold mb-3 text-base flex items-center gap-2">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        توثيق المشروع / إعداد الفريق
-                    </h3>
-                    <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
-                        <li>• إعداد وتطوير: <span class="text-white font-bold">[ اسم الطالب / الطالبة ]</span></li>
-                        <li>• إشراف: <span class="text-white font-bold">[ اسم المشرف / الدكتورة ]</span></li>
-                        <li>• الرقم الأكاديمي: <span class="text-white font-bold">[ 440000000 ]</span></li>
-                        <li>• الشعبة / المادة: <span class="text-white font-bold">[ مشروع تخرج / مادة البرمجة ]</span></li>
+                <!-- Simple Names Credits -->
+                <div class="bg-slate-800/80 p-5 rounded-2xl border border-slate-700 flex flex-col justify-center">
+                    <ul class="space-y-2 text-sm text-gray-300 font-semibold">
+                        <li>• معاذ سالم الشهراني</li>
+                        <li>• محمد حسن عسيري</li>
+                        <li>• محمد سلمان المالكي</li>
+                        <li>• خالد عايض الاسمري</li>
+                        <li>• علي سيف ال فاضل</li>
                     </ul>
                 </div>
 
